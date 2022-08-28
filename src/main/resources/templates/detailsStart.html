@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Opok</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система запросов АМК</h1>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <th:block th:include="_menuA"></th:block>
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <th:block th:include="_menuU"></th:block>
+    </div>
+    <br/>
+    <h3>Найти запрос?</h3>
+    <hr class="hr_my">
+        <form action="#" th:action="@{/filterReport}" method="POST">
+            <input type="text" name="filter" />
+            <button type="submit" class="bott_my">Найти запрос</button>
+        </form>
+
+</body>
+</html>

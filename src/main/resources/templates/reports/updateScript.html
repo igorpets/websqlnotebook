@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Query</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Система запросов АМК</h1>
+    <hr class="hr_my">
+    <h3>Редактирование запроса</h3>
+    <br/>
+
+        <div th:if="${query != null}">
+            <form method="post" action="#" th:action="@{/updateQuery/{uid}(uid=${report.id})}" th:object="${query}">
+                <table>
+                    <tr>
+                        <td>ID:</td>
+                        <td><input type="text" th:field="*{id}"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Запрос:</td>
+                        <td>
+                            <textarea type="text" th:field="*{query}" name="query" cols="100" rows="10">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <input type="hidden" th:value="${report.id}" name="uid">
+                        <td><button type="submit" class="btn btn-primary">Update/Create Query</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+</body>
+</html>

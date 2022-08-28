@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>List Reports</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система запросов АМК</h1>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <th:block th:include="_menuA"></th:block>
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <th:block th:include="_menuU"></th:block>
+    </div>
+    <br/>
+    <h2>Список запросов</h2>
+    <hr class="hr_my">
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nn</th>
+            <th>Наименование</th>
+            <th>Описание</th>
+            <th>Включена</th>
+            <th>.R.</th>
+            <th>.S.</th>
+            <th>.E.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="report : ${reports}">
+            <form action="#" th:action="@{/updateReport(id=${report.id})}" th:object="${report}" method="POST">
+                <td th:text="${report.id}">NN</td>
+                <td th:text="${report.nameQuery}">Наименование</td>
+                <td th:text="${report.description}">Описание операции</td>
+                <td th:text="${report.enableReport}">Включена включена</td>
+                <td><button class="btn btn-primary">Edit</button></td>
+            </form>
+            <td>
+                <form action="#" th:action="@{/detailsScript(id=${report.id})}" th:object="${report}" method="POST">
+                    <input type="hidden" th:value="${report.id}" name="id">
+                    <button type="submit" class="bott_my">Скрипт</button>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{/exportExcel(id=${report.id})}" th:object="${report}" method="POST">
+                    <button type="submit" class="btn btn-primary">Выгрузить в Excel</button>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{/findLogons(id=${report.id})}" th:object="${report}" method="POST">
+                    <button type="submit" class="btn btn-primary">Найти в журнале</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <form action="#" th:action="@{/createReport}" th:object="${report}" method="POST">
+        <button type="submit" class="bott_my">Create report</button>
+    </form>
+</body>
+</html>

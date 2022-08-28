@@ -1,0 +1,13 @@
+<nav role="navigation">
+    <ul xmlns:th="http://www.thymeleaf.org" class="topmenu">
+        <li><a th:href="@{/reportStart}">Запрос</a></li>
+        <li><a th:href="@{/reports}">Список запросов</a></li>
+        <li><a href="#">Журналы</a>
+            <ul class="submenu">
+                <li><a th:href="@{/logons}">Журнал</a></li>
+                <li><a th:href="@{/logonsError}">Журнал ошибок</a></li>
+            </ul>
+        </li>
+        <li><a th:href="@{/logout}">Выход</a></li>
+    </ul>
+</nav>

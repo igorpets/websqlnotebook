@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>List User</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система запросов АМК</h1>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <th:block th:include="_menuA"></th:block>
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <th:block th:include="_menuU"></th:block>
+    </div>
+    <br/>
+    <h2>Список пользователей</h2>
+    <hr class="hr_my">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nn</th>
+            <th>Пользователь</th>
+            <th>.D.</th>
+            <th>.E.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <form action="#" th:action="@{/delUser(id=${user.id})}" th:object="${user}" method="POST">
+                <td th:text="${user.id}">NN</td>
+                <td th:text="${user.username}">Наименование</td>
+                <td><button class="btn btn-primary">Delete</button></td>
+            </form>
+            <td>
+                <form action="#" th:action="@{/editUser(id=${user.id})}" th:object="${user}" method="POST">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+
+</body>
+</html>

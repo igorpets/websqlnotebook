@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Logons Process</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система запросов АМК</h1>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <th:block th:include="_menuA"></th:block>
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <th:block th:include="_menuU"></th:block>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <table align="left">
+        <tr align="left">
+            <td>
+                <h3 align="left">Журнал запросов</h3>
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td>
+                <form action="#" th:action="@{/logons}" method="GET">
+                    <button type="submit" class="butt_silver_rad">(:</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <br/>
+    <hr class="hr_my">
+    <form action="#" th:action="@{/filterLogon}" method="POST">
+        <input type="text" name="filter" />
+        <button type="submit" class="bott_my">Фильтр</button>
+    </form>
+    <hr class="hr_my">
+    <br/>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nn</th>
+            <th>Дата опер.</th>
+            <th>Запрос</th>
+            <th>Текст запроса</th>
+            <th>Количество строк</th>
+            <th>Описание отметки лога</th>
+            <th>Пользователь</th>
+            <th>Файл</th>
+            <th>Признак</th>
+            <th>U.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="logon : ${logons}">
+            <td th:text="${logon.id}">NN</td>
+            <td th:text="${logon.dateIn}">Дата </td>
+            <td th:text="${logon.processName}">Запрос</td>
+            <td th:text="${logon.script}">Текст запроса</td>
+            <td th:text="${logon._rowCount}">Количество строк</td>
+            <td th:text="${logon.logText}">Описание шага</td>
+            <td th:text="${logon.userName}">Пользователь</td>
+            <td th:text="${logon.fileNameOut}">Выходной файл</td>
+            <td th:text="${logon.flagOut}">Признак</td>
+            <td>
+                <div th:if="${logon.flagOut == 1}">
+                    <form action="#" th:action="@{/exportFile(id=${logon.id})}" th:object="${logon}" method="POST">
+                        <button type="submit" class="btn btn-primary">Выгрузить</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <!-- pagination list  -->
+    <nav aria-label="Page navigation example" class="navbar navbar toggleable-md navbar-light bg-faded">
+        <ul class="pagination nav nav-pills">
+            <li class="nav-item" th:classappend="${p}==${pageCourante}? 'active':''" th:each="p:${pages}" >
+                <a class="page-link" th:classappend="${p}==${pageCourante}? 'active':''" th:text="${p}" th:href="@{logonsList(page=${p})}">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <br>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <form action="#" th:action="@{/clearLogons}" th:object="${logon}" method="POST">
+            <button type="submit" class="bott_my">Clear logons</button>
+        </form>
+    </div>
+</body>
+</html>

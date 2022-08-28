@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>AMK</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система запросов БД</h1>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <th:block th:include="_menuA"></th:block>
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <th:block th:include="_menuU"></th:block>
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <th:block th:include="_menu@"></th:block>
+    </div>
+    <br/>
+    <hr class="hr_my">
+    <!--div sec:authorize="isAuthenticated()">Logged user:
+        <span sec:authentication="name"></span>
+    </div>-->
+
+    <div th:if="${#request.isUserInRole('ROLE_ADMIN')}">
+        <h3>This will only. Role ADMIN</h3>
+    </div>
+
+    <div th:if="${#request.isUserInRole('USER')}">
+        <h3>This will only. Role USER</h3>
+    </div>
+
+    <div sec:authorize="hasAuthority('ADMIN')">Has Authority ADMIN</div>
+    <div sec:authorize="hasAuthority('USER')">Has Authority USER</div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">Has Role ROLE_ADMIN</div>
+    <div sec:authorize="hasRole('ADMIN')">Has Role ADMIN</div>
+    <div sec:authorize="hasRole('ROLE_USER')">Has Role ROLE_USER</div>
+
+</body>
+</html>

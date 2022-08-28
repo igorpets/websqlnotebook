@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update report</title>
+</head>
+<body>
+    <div th:if="${messageReport != null}">
+        <h1>
+            <span th:text="${messageReport}"></span>
+        </h1>
+    </div>
+    <div th:if="${messageReport == null}">
+        <h1>
+            Редактрование
+        </h1>
+    </div>
+    <br/>
+
+    <div th:if="${report != null}">
+        <form method="post" action="#" th:action="@{/newUpdateReport}" th:object="${report}">
+            <table>
+                <tr>
+                    <td>ID:</td>
+                    <td><input type="text" th:field="*{id}"></input></td>
+                </tr>
+                <tr>
+                    <td>Запрос:</td>
+                    <td><input type="text" th:field="*{nameQuery}"></input></td>
+                </tr>
+                <tr>
+                    <td>Описание:</td>
+                    <td><input type="text" th:field="*{description}"></input></td>
+                </tr>
+                <tr>
+                    <td>Вклучена?:</td>
+                    <td><input type="text" th:field="*{enableReport}"></input></td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-primary">Update/Create report</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>

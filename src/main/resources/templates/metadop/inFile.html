@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Load txt file</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система запросов АМК</h1>
+    <div>
+        <th:block th:include="_menuU"></th:block>
+    </div>
+    <br/>
+    <h2>Загрузка файлов</h2>
+    <hr class="hr_my">
+    <br>
+    <form action="#" th:action="@{/uploadFile}" enctype="multipart/form-data" method="POST">
+        <p>
+            <input type="file" name="file">
+            <br />
+            <input type="submit" value="Load">
+        </p>
+    </form>
+    <br>
+    <hr class="hr_my">
+</body>
+</html>

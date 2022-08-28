@@ -1,0 +1,616 @@
+﻿body   
+{
+    background-color: #eaf2e3;
+    font-size: .80em;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #092f07;
+    text-align: center;
+}
+
+div#Gray_BG
+{
+     width: 100%; 
+     height: 100%;   
+     background-image: url('../Images/gray_bg.png'); 
+     position:absolute; 
+     top:0px; 
+     left:0px;   
+     z-index: 20;
+}
+
+.loading_data
+{
+     position:relative;
+     text-align: center;
+     z-index: 99;
+     background-image : none;
+     font-weight:bold; 
+     top: 40%;
+}
+
+a
+{
+    text-decoration: none;
+    color: #092f07;
+}
+
+.page
+{
+    width: 100%-1;
+    /*min-height:915px;*/
+    background-color: #fff;
+    /*border: 1px solid #496077;*/
+    background-image: url('../Images/bg.jpg');
+}
+
+.header
+{
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.main
+{
+    padding: 0px 6px;
+    margin: 0px 0px 0px 0px;
+    min-height: 420px;
+}
+
+div.hideSkiplink
+{
+    border-top: 1px solid #496077;
+    background-color: #08682a;
+    width:100%;
+}
+
+div.menu
+{
+    padding: 4px 0px 4px 8px;
+    font-size: 1.1em;
+
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;    
+    z-index: 10;
+}
+div.menu, div.menu ul, div.menu ul li, div.menu ul li a
+{
+    z-index: 10;
+
+}
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #49870c;
+    border: 1px rgb(0,122,60) solid;
+    background-image: url('../Images/lin.png');
+    color: rgb(255,255,255);
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: left;
+}
+div.menu ul li ul li a, div.menu ul li ul li a:visited
+{
+    background-image: none;
+    background-color: #08682a;
+}
+div.menu ul li a:hover, div.menu ul li ul li a:hover
+{
+    background-color: #82cf5d;
+    color: rgb(255,255,255);
+    text-decoration: none;
+    background-image: none;
+}
+
+div.menu ul li a:active
+{
+    background-color: rgb(0,162,60);
+    color: rgb(255,255,255);
+    text-decoration: none;
+}
+
+.title
+{
+    display: inherit;
+    float: left;
+    text-align: left;
+    width: 100%;
+    background-image:  url('../Images/topbg.jpg');
+    background-position:center;
+}
+
+.loginDisplayUser, .loginDisplayOffice, .loginDisplayVersion
+{
+    color: #f0fa59;
+    position: absolute;
+    font-size: 1.1em;
+    font-weight: bold;
+    top: 5px;
+    right:10px;
+}
+.loginDisplayOffice {top: 23px;}
+.loginDisplayVersion {top:40px}
+.loginDisplayUser span#lb_CurentDomainUser, .loginDisplayOffice span#lb_CurentOfficeCode, .loginDisplayOffice span#lb_CurentOfficeName, .loginDisplayVersion span#loginDisplayOffice
+{
+    color: #1b1b1b;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.middle_menu
+{
+    margin-top:5px;
+    margin-bottom:5px;
+    width: 100%; 
+    border-bottom: thin solid Gray;
+    border-top: thin solid Gray;
+}
+
+div.MenuMethods
+{
+	margin: 3px 3px 0px 3px;
+}
+
+/* Операции */
+
+.MenuMethods *, .MenuSubView *, .MenuTop *
+{
+	z-index: 0;
+}
+
+.MenuMethods img.icon { border-style:none;vertical-align:middle; }
+.MenuMethods img.separator { border-style:none;display:block; }
+.MenuMethods img.horizontal-separator { border-style:none;vertical-align:middle; }
+.MenuMethods ul { list-style:none;margin:0;padding:0;width:auto; }
+.MenuMethods ul.dynamic { z-index:1;margin-left:2px; }
+.MenuMethods a { text-decoration:none;white-space:nowrap;display:block; }
+.MenuMethods a.static { padding:2px 5px 2px 5px;text-decoration:none; }
+.MenuMethods a.dynamic { padding:2px 5px 2px 5px;text-decoration:none; }
+
+.MenuMethods ul li
+{
+    border-color:#08682a;
+    border-style: solid;
+    border-width: 1px;
+
+    text-align: center;
+    background-color:#82cf5d;
+    margin: 2px;
+    /*padding: 2px;*/
+    background-image:url('../Images/lin.png');
+}
+
+.MenuMethods ul li a
+{
+	font-family: Verdana;
+	font-size: 0.8em;
+    color: #FFFFFF;
+}    
+
+.MenuMethods ul li a:hover, .MenuSubView ul li a:hover, .MenuTop ul li a:hover
+{
+    background-color:#82cf5d;
+}     
+
+/* Дочерние представления */
+.MenuSubView a img { float:left; }
+
+
+.MenuSubView ul li
+{
+    text-align: center;
+    border-color:#08682a;
+    border-style: solid;
+    border-width: 1px;
+    /*background-color:#82cf5d;*/
+    margin: 2px;
+    /*padding: 2px;*/
+	min-width: 140px;
+}
+
+.MenuSubView ul li a
+{
+	font-family: Verdana;
+	font-size: 0.8em;
+    color: #08682a;
+}    
+
+.MenuSubView ul li a.selected
+{
+    color: #FFFFFF;
+    background-image:url('../Images/lin.png');
+    background-color:#08682a;
+}
+
+.MenuSubView ul li a:hover
+{
+    background-color:#82cf5d;
+}     
+
+.MenuSubViewBF ul li
+{
+    font-size: large;
+}
+
+
+.MenuTop a img { float:left; }
+
+
+.MenuTop ul li
+{
+    text-align: center;
+    border-color:#08682a;
+    border-style: solid;
+    border-width: 1px;
+    /*background-color:#82cf5d;*/
+    margin: 2px;
+    /*padding: 2px;*/
+	min-width: 140px;
+}
+
+.MenuTop ul li a
+{
+	font-family: Verdana;
+	font-size: 0.8em;
+    color: #08682a;
+}    
+/*
+.MenuTop ul li a.selected
+{
+    color: #FFFFFF;
+    background-image:url('../Images/lin.png');
+    background-color:#08682a;
+}
+*/
+.MenuTop ul li a:hover
+{
+    background-color:#82cf5d;
+}    
+
+.labelFilterColumn
+{
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.labelViewName
+{
+	float: right;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+#MainContent_Panel1 input
+{
+    background-image: url('../Images/bg.jpg');
+    background-position: center;
+}
+
+.viewPanel{
+    height: 350px; 
+    overflow: auto;
+}
+
+.viewPanel table tr
+{
+	cursor: pointer;
+}
+
+.viewPanelHeader
+{
+    text-align:left;
+    font-variant: small-caps;
+    background-color: #08682a;
+    background-image: url('../Images/lin.png');
+    color: #FFFFFF;
+}
+
+.viewCheckHeader
+{
+	width: 20px;
+}
+
+.viewRowSelected, .viewRowChecked
+{
+    background-color:#82cf5d !important;
+}
+
+.viewButtonsPanel
+{
+	padding-bottom: 0px;
+}
+
+.viewColumnFilter
+{
+	float:right;
+	padding: 3px;
+}
+
+.splitter
+{
+    height: 10px;
+    width: 99%;
+    cursor: n-resize;
+    position: absolute;
+    background-color: transparent;
+}
+.splitter:active
+{
+    background-color: green;
+}
+
+.filterGrid
+{
+	width: 100%;
+}
+
+.filterGrid_FieldColumn
+{
+	width: 200px;
+}
+
+.filterGrid_FieldCondition
+{
+	width: 150px;
+}
+
+.filterGrid_FieldValue
+{
+	text-align: left;
+}
+
+.filterGrid_FieldValue input
+{
+	min-width: 250px;
+}
+
+.filterGrid select
+{
+	width: 100%;
+}
+
+.filterGrid th
+{
+	text-align:left;
+    font-variant: small-caps;
+    background-color: #08682a;
+    background-image: url('../Images/lin.png');
+    color: #FFFFFF;
+}
+
+.filterButtonsPanel
+{
+	padding-top: 15px;
+	float: right;
+}
+
+table.dataGrid tr td
+{
+     text-align:left;
+     border: 1px solid #DDDDDD;
+     border-left-style:  hidden;
+     border-right-style:  hidden;
+}
+
+table.dataGrid tr td.Money
+{
+    text-align:right;
+}
+
+#MainContent_GridViewCalendar
+{
+	text-align: left;
+}
+
+.accordionHeaderSelected, .accordionHeader
+{
+    background-image:url('../Images/lin.png');
+}
+
+.accordionContent
+{
+    background-color: #eaf2e3;
+}
+
+.accordion {  
+    width: 400px;
+    text-align: left;
+}  
+
+.accordionHeader {  
+    border: 1px solid #2F4F4F;  
+    color: white;  
+    background-color: #2E4d7B;  
+    font-family: Arial, Sans-Serif;  
+    font-size: 12px;  
+    font-weight: bold;  
+    padding: 5px;  
+    margin-top: 5px;  
+    cursor: pointer;  
+}  
+          
+.accordionHeaderSelected {  
+    border: 1px solid #2F4F4F;  
+    color: white;  
+    background-color: #5078B3;  
+    font-family: Arial, Sans-Serif;  
+    font-size: 12px;  
+    font-weight: bold;  
+    padding: 5px;  
+    margin-top: 5px;  
+    cursor: pointer;  
+}
+        
+.accordionContent {  
+    /*background-color: #D3DEEF;  */
+    border: 1px dashed #2F4F4F;  
+    border-top: none;  
+    padding: 5px;  
+    padding-top: 10px;  
+}  
+
+.accordionContent th {
+    font-weight: bold;  
+}
+
+.accordionContent table {  
+    width: 100%;
+}
+
+.accordionContent .Money
+{
+    text-align:right;
+}
+
+.accordionContentRow td, .accordionContentRow th {
+    border-bottom: #2f4f4f 1px dashed;
+}
+
+.NewsTopic
+{
+	display:block;
+}          
+
+.NewsText
+{
+	display:block;
+}
+
+.NewsUser
+{
+	font-style:italic;
+}
+
+.NewsDate
+{
+	font-style:italic;
+	margin-left:10px;
+}
+
+.NewsItem
+{
+	border-bottom-style:dotted;
+	border-bottom-width:1px;
+	text-align:left;
+}
+
+.tooltip
+{
+	display:none;
+}
+
+.havetooltip
+{
+	position:relative;
+}
+
+.havetooltip:hover .tooltip
+{
+	display:block;
+	position:absolute;
+	z-index:1;
+	background:White;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C0C0C0;
+	line-height:normal;
+}
+
+.signs
+{
+	font-weight: bold;
+}
+
+.sign_info:hover .sign_success, .sign_info:hover .sign_error
+{
+	display: none;
+}
+
+.sign_file:hover .sign_ident:after
+{
+	content: " - ЭЦП на файле";
+}
+
+
+.sign_base:hover .sign_ident:after
+{
+	content: " - ЭЦП в базе";
+}
+
+.sign_file .sign_ident
+{
+	font-style: italic;
+}
+
+.sign_ident
+{
+	padding-right: 10px;
+}
+
+.sign_error
+{
+	color: Red;
+}
+
+.sign_success
+{
+	color: Green;
+}
+
+.Button
+{
+    border-color:#08682a;
+    border-style: solid;
+    border-width: 1px;
+
+    text-align: center;
+    background-color:#82cf5d;
+    margin: 2px;
+    padding: 4px;
+    width:100%;
+    background-image:url('../Images/lin.png');
+
+	font-family: Verdana;
+	font-size: 0.8em;
+    color: #FFFFFF;
+}
+
+.Button:hover
+{
+    background-color:#82cf5d;
+}   
+
+.TextArea
+{
+    width:100%;
+    height:100%;
+    margin-bottom:5px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Error 403</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>Система учета кредитов</h1>
+    <h2>Список кредитов</h2>
+    <th:block th:include="/_menuA"></th:block>
+    <br/>
+
+        <div class="starter-template">
+            <h2>Oops. Error 403 - Access is denied</h2>
+            <div>Hello <span sec:authentication="name"></span>
+                you do not have permission to access the page.
+            </div>
+        </div>
+</body>
+</html>

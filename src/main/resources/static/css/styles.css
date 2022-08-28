@@ -1,0 +1,122 @@
+a {
+ display: block;
+ text-decoration: none;
+ outline: none;
+}
+nav {
+ font-family: monospace;
+ margin: 0 auto 30px;
+}
+ul {
+ background: darkorange;
+ list-style: none;
+ margin: 0;
+ padding-left: 0;
+}
+li {
+ color: #fff;
+ background: darkorange;
+ display: block;
+ float: left;
+ padding: 1rem;
+ position: relative;
+ text-decoration: none;
+ transaction-duration: 0.5s;
+}
+li a {
+ color: #fff;
+}
+li:hover,
+li:focus-within {
+ background: red;
+ cursor: pointer;
+ text-decoration: none;
+}
+li:focus-within a {
+ outline: none;
+}
+ul li ul {
+ background: orange;
+ visibility: hidden;
+ opacity: 0;
+ position: absolute;
+ transition: all 0.5s ease-in-out;
+ margin-top: 1rem;
+ left: 0;
+ display: none;
+ z-index: 10;
+}
+ul li:hover ul,
+ul li:focus-within ul,
+ul li ul:hover,
+ul li ul:focus {
+ visibility: visible;
+ opacity: 1;
+ display: block;
+ text-decoration: none;
+}
+ul li ul li {
+ clear: both;
+ width: 100%
+}
+.bott_my {
+ padding: .20em .74em;
+ border: 1px solid #446d88;
+ background: #58a linear-gradient(#77a0bb, #58a);
+ border-radius: .2em;
+ box-shadow: 0 .05em .25em gray;
+ color: white;
+ text-shadow: 0 -.05em .05em #335166;
+ font-size: 120%;
+ line-height: 1.5;
+ height: 2em;
+ transaction-duration: 0.4s;
+}
+.bott_my:hover {
+ /*background-color: #4CAF50; Green*/
+ background-color: #f44336; /*Red*/
+ color: white;
+}
+.hr_my {
+ border: none;
+ background-color: red;
+ color: red;
+ height: 2px;
+}
+.butt_upd {
+ position: relative;
+ z-index: 1;
+ display: inline-block;
+ width: 2.4em;
+ height: 2.4em;
+ line-height: 2.4em;
+ vertical-align: middle;
+ text-align: center;
+ text-decoration: none;
+ text-shadow: 1px 1px rgba(255,255,255,.3);
+ font-size: 300%
+ font-weight: 900;
+ color: #000;
+ border-radius: 100%;
+ background: rgb(144,142,105) linear-gradient(rgb(185,181,151), rgb(144,142,105));
+ box-shadow: inset 0 -2px 1px rgba(0,0,0,.5), inset 0 2px 1px rgba(255,255,255,.9),
+ 0 4px 4px rgba(0,0,0,.9);
+}
+.butt_silver_rad {
+ display: inline-block;
+ width: 2.4em;
+ height: 2.4em;
+ vertical-align: middle;
+ text-decoration: none;
+ border: .5em solid rgba(0,0,0,0);
+ border-radius: 100%;
+ background: rgb(245,245,245) linear-gradient(rgb(245,245,245), rgb(188,192,193)) 50%
+ 50%/calc(1.5em+.5em*2) calc(1.5em+.5em*2);
+ box-shadow: inset 0 -3px 10px rgba(255,255,255,1), inset 0 3px 10px rgba(0,0,0,.4),
+ 0 2px 4px rgba(0,0,0,.9);
+}
+.form-log-my {
+ width: 300px;
+ margin: 60px auto 30px;
+ padding: 10px;
+}
